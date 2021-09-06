@@ -1,0 +1,31 @@
+xp-8. Write a PL/ SQL to generate natural number using various loops
+8: using while loop 
+declare
+    a number :=8;
+    i number :=1;
+begin
+    if(a>0) then
+        while(i<=a)
+        loop
+        dbms_output.put_line(i);
+        i:=i+1;
+        end loop;
+    end if;
+end;
+  using for loop
+declare
+    a number :=8;
+    i number :=1;
+begin
+    if(a>0) then
+        for i in 1..a
+        loop
+        dbms_output.put_line(i);
+        end loop;
+    end if;
+end;
+
+
+
+
+
