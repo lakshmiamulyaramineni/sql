@@ -1,0 +1,12 @@
+Exp-12. Write a PL/ SQL to generate mathematical product table for a given number
+
+12
+declare
+    n number :=5;
+    i number :=1;
+begin
+    for i in 1..10
+        loop
+        dbms_output.put_line(n ||'*'||i||'='||n*i);
+        end loop;
+end;
