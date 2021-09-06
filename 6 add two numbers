@@ -1,0 +1,9 @@
+6:
+declare
+    a number :=5;
+    b number :=6;
+    c number;
+begin
+    c :=a+b;
+    dbms_output.put_line('sum of' ||a|| 'and' ||b|| 'is' ||c);
+end;
