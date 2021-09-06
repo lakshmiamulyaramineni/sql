@@ -1,0 +1,20 @@
+Exp-10. Write a PL/ SQL to check whether the given number is prime or not
+
+10
+declare
+    n number :=2;
+    i number :=1;
+    cnt number :=0;
+begin
+    for i in 1..n
+    loop
+    if(mod(n,i)=0) then
+        cnt :=cnt+1;
+    end if;
+    end loop;
+    if(cnt=2) then
+        dbms_output.put_line(n ||'is prime');
+    else
+        dbms_output.put_line(n ||'is not prime');
+    end if;
+end;
