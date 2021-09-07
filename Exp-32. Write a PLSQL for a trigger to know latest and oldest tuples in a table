@@ -1,0 +1,21 @@
+Exp-32. Write a PL/SQL for a trigger to know latest and oldest tuples in a table
+
+
+32
+A
+create table student
+(roll number(3) primary key,
+sname varchar2(15),
+age number(3));
+
+
+
+b
+create or replace trigger age before insert on student 
+declare
+begin
+	update student set age=age+1;
+end;
+
+c
+select * from student;
