@@ -1,4 +1,19 @@
 Exp-29. Write a PL/SQL for a programmer to demonstrate user defined exceptions
 
 
+declare 
+    a programmer.pname%type:='Anand';
+    datbirth programmer.doj%type;
+    invalid_age_exception exception;
 
+begin
+    select doj into datbirth from programmer where pname=a;
+if(sysdate-datbirth)/365>18 then
+    dbms_output.put_line(a||' is eligible to vote');
+else
+RAISE invalid_age_exception;
+end if;
+EXCEPTION
+when invalid_age_exception then
+dbms_output.put_line('sorry'||a||'is not eligible to vote');
+end
