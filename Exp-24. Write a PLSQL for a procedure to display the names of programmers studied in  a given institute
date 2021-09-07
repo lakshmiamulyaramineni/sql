@@ -1,0 +1,25 @@
+Exp-24. Write a PL/SQL for a procedure to display the names of programmers studied in 
+a given institute
+
+
+24
+A
+create or replace procedure getname(sp in studies.splace%type) as
+	cursor s is select * from studies where splace=sp;
+	t s%rowtype;
+begin
+	open s;
+	loop
+		fetch s into t;
+		exit when s%notfound;
+		dbms_output.put_line(t.pname);
+		end loop;
+	close s;
+end;
+
+b
+declare
+	x studies.splace%type:='BITS';
+begin
+	getname(x);
+end;
