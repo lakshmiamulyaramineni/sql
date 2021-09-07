@@ -1,0 +1,46 @@
+Exp-26. Write a PL/SQL for a package with one procedure and one function. Procedure 
+displays mathematical product table for a given number. Function return product of two 
+numbers
+
+
+26
+A
+create or replace package my_pack1 is
+     procedure product_table(a in number);
+     function product(a in number,b in number)return number;
+end;
+
+b
+create or replace package body my_pack1 as
+     procedure product_table(a in number)as
+        i number;
+        begin
+            i:=1;
+            while(i<=10)
+            loop
+                dbms_output.put_line(a||'*'||i||'='||a*i);
+                i:=i+1;
+            end loop;
+        end product_table;
+        function product(a in number,b in number)return number as c number;
+            begin
+                c:=a*b;
+                return c;
+            end product;
+        end;
+
+
+
+
+
+
+c
+declare
+    x number:=12;
+    y number:=2;
+    z number;
+begin
+    my_pack1.product_table(x);
+    z:=my_pack1.product(x,y);
+    dbms_output.put_line('Product of'||x||'and'||y||'is:'||z);
+end;
