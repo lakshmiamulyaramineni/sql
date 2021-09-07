@@ -1,0 +1,24 @@
+Exp-31. Write a PL/SQL for a trigger to store the details of updated salary of a 
+programmer into another table
+
+
+31
+A
+create table prog as select pname, salary from programmer;
+
+b
+create table update_prog
+(pname varchar2(20),
+old_salary number(7,2),
+new_salary number(7,2),
+dt date,
+time varchar2(10));
+
+c
+create or replace trigger update_status after update on prog for each row 
+begin
+	insert into update_prog values(:old.pname, :old.salary, :new.salary, sysdate, substr(current_timestamp,11,8));
+end;
+
+d
+select * from update_prog;
